@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse, HttpRequest, Http404
 import datetime
-
-
+from .models import Director, Review, Movie
 
 
 def test(request):
@@ -33,3 +32,21 @@ def text3(request):
         'time': a
     }
     return render(request, 'proj3.html', context=dict_)
+
+
+def movie_list_view(request):
+    movie_list = Movie.objects.all()
+    context = {
+        'movie': movie_list
+    }
+    return render(request, 'FILM_list.html', context=context)
+
+
+def movie_detail_view(request, id):
+    try:
+        Movie_detail = Movie.objects.get(id=id)
+    except Movie.DoesNotExist:
+        raise Http404('movie not FOUND!!!')
+    return render(request, 'film_detali.html', context={
+        'detail': Movie_detail
+    })

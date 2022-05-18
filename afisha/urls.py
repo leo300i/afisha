@@ -24,4 +24,6 @@ urlpatterns = [
     path('page1/', views.text1),
     path('page2/', views.text2),
     path('page3/', views.text3),
+    path('movies/', views.movie_list_view),
+    path('movies/<int:id>/', views.movie_detail_view),
 ]
