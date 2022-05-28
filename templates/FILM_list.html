@@ -1,14 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="{% static 'css/index.css' %}" type="text/css" rel="stylesheet"/>
 </head>
 <body>
+<img style="width: 100px; height: 100px" src="{% static 'img/fon-13938.jpeg' %}">
 {% for i in movie %}
-<h5>{{ i.title }}</h5>
-<P>{{ i.title }}</P>
-<p>{{ i.descriptions }}</p>
+    <h5>{{ i.title }}</h5>
+    <P>{{ i.title }}</P>
+    <p>{{ i.descriptions }}</p>
 <hr>
 {%endfor%}
 
